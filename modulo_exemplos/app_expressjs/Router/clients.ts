@@ -4,10 +4,12 @@ import clientsController from "../Controller/clientsController";
 const router = Router();
 
 router.get('/', clientsController.index)
+router.get('/:id', clientsController.show)
 
-router.get('/sobrenos', (req,res) => {
-    res.send("Rota falando sobre a empresa")
-})
+router.get('/create', clientsController.create)
+router.post('/create', clientsController.store)
+
+router.get('/edit/:id', clientsController.edit)
 
 router.get('/trabalheconosco', (req,res) => {
     res.send("Opcoes de carreira")

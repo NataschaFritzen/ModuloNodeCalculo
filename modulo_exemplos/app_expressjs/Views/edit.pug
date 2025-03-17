@@ -1,0 +1,20 @@
+head
+  meta(charset='utf-8')
+  title EDIT
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+
+  body
+    p 
+    .modal-dialog
+        .modal-content
+          // Modal Body
+          .modal-body
+            //#editForm.form(role='form' method='GET' action='https://www.google.com/')
+            form(role='form' method='POST' action='/edit')
+              div.form-group
+                label(for='name') Nome:
+                input#name.form-control(type='text', placeholder='nome' name='nome' value=cliente.nome)
+              div.form-group
+                label(for='email') Email:
+                input#email.form-control(type='text', placeholder='nome@email.com' name='email' value=cliente.email)
+              button.btn.btn-primary(type="submit", name="asdf") Editar cliente
