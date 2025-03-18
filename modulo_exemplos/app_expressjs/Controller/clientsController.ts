@@ -29,4 +29,29 @@ async function edit (req: Request, res: Response, next: any) {
     res.render("edit", {client: client});
 }
 
-export default {index, create, store, show, edit};
+async function update (req: Request, res: Response, next: any) {
+    await clientsModel.update(
+        req.body as Iclients, {
+            where: {
+                id: req.params.id
+
+            }
+        }
+    );
+    
+    res.redirect('/');
+}
+
+async function del (req: Request, res: Response, next: any) {
+    await clientsModel.destroy(
+        {
+        where:{
+            id: req.params.id
+        }
+    }
+)
+    res.redirect('/');
+}
+
+
+export default {index, create, store, show, edit, update, del};

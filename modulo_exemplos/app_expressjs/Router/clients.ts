@@ -3,20 +3,16 @@ import clientsController from "../Controller/clientsController";
 
 const router = Router();
 
-router.get('/', clientsController.index)
-router.get('/:id', clientsController.show)
+router.get('/clients/', clientsController.index)
+router.get('/clients/:id', clientsController.show)
 
-router.get('/create', clientsController.create)
-router.post('/create', clientsController.store)
+router.get('/clients/create', clientsController.create)
+router.post('/clients/create', clientsController.store)
 
-router.get('/edit/:id', clientsController.edit)
+router.get('/clients/edit/:id', clientsController.edit)
+router.post('/clients/edit/:id', clientsController.update)
 
-router.get('/trabalheconosco', (req,res) => {
-    res.send("Opcoes de carreira")
-})
+router.get('/clients/del/:id', clientsController.del)
 
-router.get('/contato', (req,res) => {
-    res.send("(48) 9999-9999")
-})
 
 export default router;
