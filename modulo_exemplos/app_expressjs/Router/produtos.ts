@@ -4,8 +4,6 @@ import produtosController from "../Controller/produtosController";
 const router = Router();
 
 router.get('/produtos', produtosController.produtos);
-router.get('/produtos/:id', produtosController.show);
-
 router.get('/produtos/create', produtosController.create);
 router.post('/produtos/create', produtosController.store);
 

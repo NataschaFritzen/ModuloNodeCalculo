@@ -5,7 +5,7 @@ async function produtos (req: Request, res: Response, next: any) {
 
     if(process.env.APP_LOGIN == '1'){
         const produtos = await produtosModel.findAll();
-        res.json(produtos)
+        res.render("produtos", {produtos:produtos});
     }
     else{
         res.send("Login não efetuado, pagina inacessivel");
@@ -19,7 +19,7 @@ async function show (req: Request, res: Response, next: any) {
 
 
 function create (req: Request, res: Response, next: any) {
-    res.render("createProdutos")
+    res.render("NovoProduto");
 }
 
 async function store (req: Request, res: Response, next: any) {
@@ -31,7 +31,7 @@ res.redirect('/produtos');
 async function edit (req: Request, res: Response, next: any) {
     const produto = await produtosModel.findByPk(req.params.id);
 
-    res.render("editProduto", {produto: produto});
+    res.render("EditarProduto", {produto: produto});
 }
 
 async function update (req: Request, res: Response, next: any) {
