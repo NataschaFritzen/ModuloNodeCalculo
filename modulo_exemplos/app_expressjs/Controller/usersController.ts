@@ -17,12 +17,13 @@ async function checkLogin (req: Request, res: Response, next: any) {
                     password: login.password
                 }
             });
+            
             if ( logado != null){
                 res.redirect("/clients");
+                process.env.APP_LOGIN = '1';
             }
             else{
-                //console.log("Senha inválida!");
-                throw new Error("Senha inválida!");
+                res.render("login", {login: 0})
             }
 
         }catch(erro){
